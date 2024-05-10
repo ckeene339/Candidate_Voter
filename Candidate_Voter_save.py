@@ -7,6 +7,11 @@ from Candidate_Voter_gui import *
 
 class SAVE:
     
+    '''
+    Function below runs all possible tests to make sure the input meets the requirements including
+    original 6 digit IDs and a name has been selected.
+    '''
+    
     def test_data(self, voter: str, candidate: int, candidate_text, label_info: Label) -> bool:
         try:
             
@@ -43,6 +48,10 @@ class SAVE:
             return False
             
         
+    '''
+    Function below makes sure the voter ID is not a duplicate of one already saved
+    in the csv file.
+    '''
     
     def is_voter_duplicate(self) -> bool:
         try:
@@ -60,7 +69,9 @@ class SAVE:
             print(f"An error occurred: {e}")
             return False
     
-    
+    '''
+    Code below saves data to csv file after checking in test_data that all information is valid.
+    '''
         
     def save_data(self, voter: str, candidate: int, candidate_text, label_info: Label, radio_answer, entry_widget: Entry) -> bool:
         try:
